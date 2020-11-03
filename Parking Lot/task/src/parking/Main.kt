@@ -8,17 +8,18 @@ fun main() {
     Parking.executeCommand(command)
 }
 
+class Car(val number: String, val color: String)
 
 object Parking {
     private const val numberOfParkingSpots = 2
-    private val parkingSlots = Array(numberOfParkingSpots) { Pair("", "") }
+    private val parkingSlots = Array<Car?>(numberOfParkingSpots) { null }
 
     init {
-        parkingSlots[0] = Pair("1", "1")
+        parkingSlots[0] = Car("1", "1")
     }
 
     fun executeCommand(command: String) {
-        if (command.isEmpty() || command.isNullOrBlank()) {
+        if (command.isEmpty() || command.isBlank()) {
             return
         }
 
@@ -30,12 +31,12 @@ object Parking {
     }
 
     private fun parkCar(carNumber: String, carColor: String) {
-        val emptySlotIndex = parkingSlots.indexOfFirst { it.first.isEmpty() }
+        val emptySlotIndex = parkingSlots.indexOfFirst { it == null }
         if (emptySlotIndex == -1) {
             println("No empty places")
             return
         }
-        parkingSlots[emptySlotIndex] = Pair(carNumber, carColor)
+        parkingSlots[emptySlotIndex] = Car(carNumber, carColor)
         println("$carColor car parked in spot ${emptySlotIndex + 1}.")
     }
 
@@ -45,8 +46,8 @@ object Parking {
         }
 
         val parkedCar = parkingSlots[spotNumber - 1]
-        if (parkedCar.first.isNotEmpty()) {
-            parkingSlots[spotNumber - 1] = Pair("", "")
+        if (parkedCar != null) {
+            parkingSlots[spotNumber - 1] = null
             println("Spot $spotNumber is free.")
         } else {
             println("There is no car in spot $spotNumber.")

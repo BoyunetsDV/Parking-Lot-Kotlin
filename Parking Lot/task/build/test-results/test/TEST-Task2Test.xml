@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Task2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-03T20:05:12" hostname="DESKTOP-GKSSB9M" time="0.196">
+<testsuite name="Task2Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-03T20:49:49" hostname="DESKTOP-GKSSB9M" time="0.241">
   <properties/>
-  <testcase name="start" classname="Task2Test" time="0.196"/>
+  <testcase name="start" classname="Task2Test" time="0.241"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 > park KA-01-HH-1234 White
