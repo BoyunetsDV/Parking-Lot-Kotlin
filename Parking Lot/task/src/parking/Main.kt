@@ -4,19 +4,17 @@ import java.util.*
 
 fun main() {
     val scanner = Scanner(System.`in`)
-    val command = scanner.nextLine()
-    Parking.executeCommand(command)
+    do {
+        val command = scanner.nextLine()
+        Parking.executeCommand(command)
+    } while (command != "exit")
 }
 
 class Car(val number: String, val color: String)
 
 object Parking {
-    private const val numberOfParkingSpots = 2
+    private const val numberOfParkingSpots = 20
     private val parkingSlots = Array<Car?>(numberOfParkingSpots) { null }
-
-    init {
-        parkingSlots[0] = Car("1", "1")
-    }
 
     fun executeCommand(command: String) {
         if (command.isEmpty() || command.isBlank()) {
@@ -33,7 +31,7 @@ object Parking {
     private fun parkCar(carNumber: String, carColor: String) {
         val emptySlotIndex = parkingSlots.indexOfFirst { it == null }
         if (emptySlotIndex == -1) {
-            println("No empty places")
+            println("Sorry, the parking lot is full.")
             return
         }
         parkingSlots[emptySlotIndex] = Car(carNumber, carColor)
