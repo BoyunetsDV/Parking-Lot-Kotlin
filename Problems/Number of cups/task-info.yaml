@@ -1,0 +1,14 @@
+type: code
+files:
+- name: src/Main.kt
+  visible: true
+  text: "class Cups(val amount: Int) {\n    override fun toString(): String {\n  \
+    \      return (...)    \n    }\n}"
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10199#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/10199#comment">JetBrains
+    Academy</a></html>
+  time: Wed, 04 Nov 2020 19:48:10 UTC
+record: -1

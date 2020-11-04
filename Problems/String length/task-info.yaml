@@ -1,0 +1,16 @@
+type: code
+files:
+- name: src/Main.kt
+  visible: true
+  text: |-
+    fun getLength(input: String?): Int {
+        return 0
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/9696#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/9696#comment">JetBrains
+    Academy</a></html>
+  time: Wed, 04 Nov 2020 19:29:05 UTC
+record: -1

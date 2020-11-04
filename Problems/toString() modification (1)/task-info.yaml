@@ -1,0 +1,17 @@
+type: code
+custom_name: toString() modification
+files:
+- name: src/Main.kt
+  visible: true
+  text: |-
+    data class Box(val height: Int, val length: Int, val width: Int) {
+        var size: Int = height + length + width
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/8532#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/8532#comment">JetBrains
+    Academy</a></html>
+  time: Wed, 04 Nov 2020 20:29:38 UTC
+record: -1

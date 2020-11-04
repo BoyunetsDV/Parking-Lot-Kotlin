@@ -13,8 +13,7 @@ fun main() {
 class Car(val number: String, val color: String)
 
 object Parking {
-    private const val numberOfParkingSpots = 20
-    private val parkingSlots = Array<Car?>(numberOfParkingSpots) { null }
+    private var parkingSlots = emptyArray<Car?>()
 
     fun executeCommand(command: String) {
         if (command.isEmpty() || command.isBlank()) {
@@ -23,12 +22,23 @@ object Parking {
 
         val commandParts = command.split(" ")
         when (commandParts[0]) {
+            "create" -> createParking(commandParts[1].toInt())
             "park" -> parkCar(commandParts[1], commandParts[2])
             "leave" -> freeSpot(commandParts[1].toInt())
+            "status" -> displayParkingStatus()
         }
     }
 
+    private fun createParking(numberOfParkingSpots: Int) {
+        parkingSlots = Array<Car?>(numberOfParkingSpots) { null }
+        println("Created a parking lot with $numberOfParkingSpots spots.")
+    }
+
     private fun parkCar(carNumber: String, carColor: String) {
+        if (isParkingIsNotCreated()) {
+            return
+        }
+
         val emptySlotIndex = parkingSlots.indexOfFirst { it == null }
         if (emptySlotIndex == -1) {
             println("Sorry, the parking lot is full.")
@@ -39,7 +49,11 @@ object Parking {
     }
 
     private fun freeSpot(spotNumber: Int) {
-        if (spotNumber <= 0 || spotNumber > numberOfParkingSpots) {
+        if (isParkingIsNotCreated()) {
+            return
+        }
+
+        if (spotNumber !in 1..parkingSlots.size) {
             return
         }
 
@@ -49,6 +63,33 @@ object Parking {
             println("Spot $spotNumber is free.")
         } else {
             println("There is no car in spot $spotNumber.")
+        }
+    }
+
+    private fun displayParkingStatus() {
+        if (isParkingIsNotCreated()) {
+            return
+        }
+
+        if (parkingSlots.all { it == null }) {
+            println("Parking lot is empty.")
+            return
+        }
+
+        for (i in parkingSlots.indices) {
+            if (parkingSlots[i] == null){
+                continue
+            }
+            println("${i + 1} ${parkingSlots[i]?.number} ${parkingSlots[i]?.color}")
+        }
+    }
+
+    private fun isParkingIsNotCreated(): Boolean {
+        return if (parkingSlots.isEmpty()) {
+            println("Sorry, a parking lot has not been created.")
+            true
+        } else {
+            false
         }
     }
 }

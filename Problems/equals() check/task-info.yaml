@@ -1,0 +1,21 @@
+type: code
+files:
+- name: src/Main.kt
+  visible: true
+  text: |-
+    import java.util.Scanner
+
+    data class Client(val name: String, val age: Int, val balance: Int)
+
+    fun main(args: Array<String>) {
+        val input = Scanner(System.`in`)
+        //implement your code here
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/8534#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/8534#comment">JetBrains
+    Academy</a></html>
+  time: Wed, 04 Nov 2020 20:21:07 UTC
+record: -1

@@ -1,0 +1,13 @@
+type: code
+files:
+- name: src/Main.kt
+  visible: true
+  text: 'data class Box(val height: Int, val length: Int, val width: Int)'
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/8531#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/8531#comment">JetBrains
+    Academy</a></html>
+  time: Wed, 04 Nov 2020 20:15:46 UTC
+record: -1
